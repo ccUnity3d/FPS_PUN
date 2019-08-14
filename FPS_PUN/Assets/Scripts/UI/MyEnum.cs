@@ -2,6 +2,8 @@
 
 public enum PageType {
     LoginPage,
+    LobbyPage,
+    CreateRoomPage,
     MainPage,
     Scheme,
     KeyBoard,

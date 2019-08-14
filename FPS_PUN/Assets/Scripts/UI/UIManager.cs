@@ -41,8 +41,14 @@ public class UIManager :Singleton<UIManager> {
         //UICopntrollerData arpage = Instance.inject(PageType.ARPage,aRPageController);
         //arpage.state = SimpleLoadedState.Success;
 
-        LoginPageController loginctr = LoginPageController.Instance;
-        UICopntrollerData login = Instance.inject(PageType.LoginPage,loginctr);
+        LoginPageController loginCtr = LoginPageController.Instance;
+        UICopntrollerData loginData = Instance.inject(PageType.LoginPage, loginCtr);
+
+        LobbyPageController lobbyCtr = LobbyPageController.Instance;
+        UICopntrollerData lobbyData = Instance.inject(PageType.LobbyPage, lobbyCtr);
+
+        CreateRoomPageController createRoomCtr = CreateRoomPageController.Instance;
+        UICopntrollerData createRoomData = Instance.inject(PageType.CreateRoomPage,createRoomCtr);
     }
     private UICopntrollerData inject(PageType page, IController control)
     {
@@ -120,11 +126,12 @@ public class UIManager :Singleton<UIManager> {
                 ControllerDic[page].controller.sleep();
                 if (DestroyWhenClose == true && ControllerDic[page].destroyable == true)
                 {
-                    ControllerDic[page].skin.SetActive(false);
-                }
-                else {
                     //ControllerDic[page].state = SimpleLoadedState.None;
                     //ResourcesPool.Dispos(ControllerDic[page].skin);
+                   
+                }
+                else {
+                   // ControllerDic[page].skin.SetActive(false);
                 }
                 break;
             default:
