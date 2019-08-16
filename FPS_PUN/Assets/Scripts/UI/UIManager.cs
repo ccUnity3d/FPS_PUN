@@ -49,6 +49,9 @@ public class UIManager :Singleton<UIManager> {
 
         CreateRoomPageController createRoomCtr = CreateRoomPageController.Instance;
         UICopntrollerData createRoomData = Instance.inject(PageType.CreateRoomPage,createRoomCtr);
+
+        RoomPageController roomPageCtr = RoomPageController.Instance;
+        UICopntrollerData roomData = Instance.inject(PageType.RoomPage, roomPageCtr);
     }
     private UICopntrollerData inject(PageType page, IController control)
     {

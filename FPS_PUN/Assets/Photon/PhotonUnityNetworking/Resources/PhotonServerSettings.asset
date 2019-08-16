@@ -21,7 +21,7 @@ MonoBehaviour:
     Server: 172.23.101.129
     Port: 5055
     Protocol: 0
-    EnableLobbyStatistics: 0
+    EnableLobbyStatistics: 1
     NetworkLogging: 1
   PunLogging: 0
   EnableSupportLogger: 0
