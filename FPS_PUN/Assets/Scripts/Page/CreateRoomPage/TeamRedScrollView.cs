@@ -5,10 +5,30 @@ using Photon.Realtime;
 
 public class TeamRedScrollView : UGUIScrollView {
 
-
+    private Arrangement arragement = Arrangement.Vertical;
+    public List<GameObject> skinPools = new List<GameObject>();
     protected override void Init()
     {
         base.Init();
+        ItemSkin = transform.Find("item").gameObject;
+        ItemSkin.AddComponent<TeamRedItemFunction>();
+        UDragScroll uscr = ItemSkin.AddComponent<UDragScroll>();
+        uscr.scroRect = ScroRect;
+        SetData(640, 80, arragement, 6, 20, 10, 5);
+        initObjectPool();
+    }
+    public int poolNumber= 10;
+    private void initObjectPool() {
+        for (int i = 0; i < poolNumber; i++)
+        {
+            GameObject cloneSkin = GameObject.Instantiate(ItemSkin);
+            cloneSkin.transform.SetParent(ContentRectTrans);
+            cloneSkin.transform.localPosition = GetLoaclPosByIndex(i);
+            cloneSkin.transform.localScale = Vector3.one;
+            cloneSkin.GetComponent<RectTransform>().SetSiblingIndex(i);
+            cloneSkin.SetActive(false);
+            skinPools.Add(cloneSkin);
+        }
     }
     public override void Display(List<object> data)
     {
@@ -16,24 +36,26 @@ public class TeamRedScrollView : UGUIScrollView {
     }
     public override void RefreshDisplay(List<object> data = null, bool restPos = false, bool isChange = false)
     {
+
+        foreach (UGUIItemFunction item in itemDic.Values)
+        {
+            item.gameObject.SetActive(false);
+            //skinList.Push(item.gameObject);
+        }
+
+        itemDic.Clear();
+
         List<object> playerData = new List<object>();
         foreach (var item in data)
         {
             Player player =  item as Player;
-            if (player.CustomProperties["Team"].Equals("RedTeam"))
+            if (player.CustomProperties["Team"].Equals("redTeam"))
             {
                 playerData.Add(item);
             }
         } 
-
         if (actived == false) return;
-        foreach (UGUIItemFunction item in itemDic.Values)
-        {
-            item.gameObject.SetActive(false);
-            skinList.Push(item.gameObject);
-        }
-
-        itemDic.Clear();
+  
         if (restPos == true) ResetPostion();
         if (playerData != null)
         {
@@ -50,7 +72,7 @@ public class TeamRedScrollView : UGUIScrollView {
             {
                 return;
             }
-            skinClone = GetInstance();
+            skinClone = Instance(i);
             skinClone.transform.SetParent(ContentRectTrans);
             skinClone.transform.localPosition = GetLoaclPosByIndex(i);
             skinClone.transform.localScale = Vector3.one;
@@ -63,6 +85,12 @@ public class TeamRedScrollView : UGUIScrollView {
             ItemAddListion(func);
             ItemChildGameObject(skinClone);
         }
+    }
+    protected  GameObject Instance(int index)
+    {
+        var go = skinPools[index];
+        go.SetActive(true);
+        return go;
     }
 
 }

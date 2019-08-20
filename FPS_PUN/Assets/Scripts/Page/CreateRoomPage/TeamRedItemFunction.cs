@@ -19,7 +19,21 @@ public class TeamRedItemFunction : UGUIItemFunction {
     public override void Render()
     {
         base.Render();
-        nameText.text = (string)itemData.CustomProperties["name"];
-        stateText.text = (string)itemData.CustomProperties["state"];
+        nameText.text = (string)itemData.NickName;
+        if (itemData.IsMasterClient)
+        {
+                stateText.text = "房主";
+        }
+        else {
+            if ((bool)itemData.CustomProperties["isReady"])
+            {
+                stateText.text = "准备";
+            }
+            else
+            {
+                stateText.text = "未准备";
+            }
+        }
+        
     }
 }

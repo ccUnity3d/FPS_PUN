@@ -57,11 +57,14 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
     /// 进入房间 
     /// </summary>
     /// <param name="obj"></param>
+    RoomInfo roomInfo = null;
     private void OnEnterRoom(LobbyRoomItemFunction obj)
     {
         //TODO
-        RoomInfo roomInfo = (RoomInfo)obj.data;
-        PhotonNetwork.JoinRoom(roomInfo.Name);
+        Debug.Log("asdfasdf");
+        PhotonNetwork.LeaveLobby();
+        roomInfo = (RoomInfo)obj.data;
+       
     }
     /// <summary>
     /// 离开大厅
@@ -101,7 +104,14 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
     public void OnLeftLobby()
     {
         Debug.Log("OnLeftLobby");
-        PhotonNetwork.Disconnect();
+        if (roomInfo != null)
+        {
+            PhotonNetwork.JoinRoom(roomInfo.Name);
+        }
+        else
+        {
+            PhotonNetwork.Disconnect();
+        }
     }
     /// <summary>
     /// callback  更新房间列表
@@ -144,7 +154,8 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
     public void OnJoinedRoom()
     {
         Debug.Log("JoinedRoom");
-
+        UIManager.Close(PageType.LobbyPage);
+        UIManager.Open(PageType.RoomPage);
         //throw new NotImplementedException();
     }
 

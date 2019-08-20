@@ -27,7 +27,6 @@ public class LobbyRoomItemFunction : UGUIItemFunction {
     }
     void Start()
     {
-        enterButton.onClick.AddListener(OnEnterRoom);
     }
 
     private void OnEnterRoom()
@@ -37,6 +36,7 @@ public class LobbyRoomItemFunction : UGUIItemFunction {
 
     public override void Render()
     {
+        NoText.text = index.ToString();
         nameText.text = itemData.Name;
         roomNumberText.text = itemData.PlayerCount.ToString();
     }

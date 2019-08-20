@@ -11,6 +11,7 @@ public class RoomPage : UIPage<RoomPage> {
     public RectTransform blueTeamRT;
     public Button switchTeamButton;
     public Button startGameButton;
+    public Button exitButton;
     public Text gameRoomNameText;
     #endregion
     public override void OnInstance()
@@ -22,10 +23,11 @@ public class RoomPage : UIPage<RoomPage> {
     {
         base.Ready(arg1);
         gameRoomPlaneRT = UITool.GetUIComponent<RectTransform>(skin.transform, "GameRoomPlane");
-        redTeamRT = UITool.GetUIComponent<RectTransform>(gameRoomPlaneRT, "redTeam");
-        blueTeamRT = UITool.GetUIComponent<RectTransform>(gameRoomPlaneRT, "blueTeam ");
+        redTeamRT = UITool.GetUIComponent<RectTransform>(gameRoomPlaneRT, "redTeam/Scroll Rect Mask");
+        blueTeamRT = UITool.GetUIComponent<RectTransform>(gameRoomPlaneRT, "blueTeam/Scroll Rect Mask");
         switchTeamButton = UITool.GetUIComponent<Button>(gameRoomPlaneRT, "switchTeamButton");
         startGameButton = UITool.GetUIComponent<Button>(gameRoomPlaneRT, "startGameButton");
+        exitButton = UITool.GetUIComponent<Button>(gameRoomPlaneRT, "exitButton");
         gameRoomNameText = UITool.GetUIComponent<Text>(gameRoomPlaneRT, "titleText");
     }
 }

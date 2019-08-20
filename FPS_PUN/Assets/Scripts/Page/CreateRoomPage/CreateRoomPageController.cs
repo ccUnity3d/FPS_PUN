@@ -55,7 +55,6 @@ public class CreateRoomPageController : UIController<CreateRoomPageController>,I
     {
         string nameRoom = createRoom.roomNameInputField.textComponent.text;
         PhotonNetwork.CreateRoom(nameRoom,new RoomOptions { MaxPlayers = 20});
-    
     }
     /// <summary>
     /// callback  玩家进入房间
@@ -130,10 +129,8 @@ public class CreateRoomPageController : UIController<CreateRoomPageController>,I
     public void OnJoinedRoom()
     {
         Debug.Log("加入房间");
-      
         UIManager.Close(PageType.CreateRoomPage);
         UIManager.Open(PageType.RoomPage);
-        
     }
     /// <summary>
     /// callback  加入房间失败

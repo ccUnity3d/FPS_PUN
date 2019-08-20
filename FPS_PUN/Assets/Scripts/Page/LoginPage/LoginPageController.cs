@@ -36,7 +36,7 @@ public class LoginPageController : UIController<LoginPageController> , IConnecti
 
         //loginPage.creatRoomButton.onClick.AddListener(OnCreateRoom);
 
-        MyTickManager.Instance.add(LoginUpdate);
+        //MyTickManager.Instance.add(LoginUpdate);
        
     }
     ClientState ClientState = ClientState.PeerCreated;
@@ -53,15 +53,16 @@ public class LoginPageController : UIController<LoginPageController> , IConnecti
 #endif
     private void OnLogin()
     {
-        if (!PhotonNetwork.IsConnected)
-            PhotonNetwork.ConnectUsingSettings();
         if (loginPage.nicknameInputField.textComponent.text=="")
         {
             loginPage.nicknameInputField.textComponent.text = "player" + Random.Range(1,100);
-            PhotonNetwork.LocalPlayer.NickName = loginPage.nicknameInputField.textComponent.text;
-            PlayerPrefs.SetString("UserName", loginPage.nicknameInputField.textComponent.text);
-            PlayerPrefs.Save();
         }
+        PhotonNetwork.LocalPlayer.NickName = loginPage.nicknameInputField.textComponent.text;
+        Debug.Log(PhotonNetwork.LocalPlayer.NickName + "   NickName");
+        PlayerPrefs.SetString("UserName", loginPage.nicknameInputField.textComponent.text);
+        PlayerPrefs.Save();
+        if (!PhotonNetwork.IsConnected)
+            PhotonNetwork.ConnectUsingSettings();
     }
 
     private void OnExit()

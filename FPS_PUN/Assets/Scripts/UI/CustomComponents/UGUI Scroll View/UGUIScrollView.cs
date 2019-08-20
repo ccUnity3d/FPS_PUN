@@ -421,7 +421,7 @@ public class UGUIScrollView : MonoBehaviour
         return new Vector3(x, y);
     }
 
-    protected GameObject GetInstance()
+    protected virtual GameObject GetInstance()
     {
         if (skinList.Count > 0)
         {
