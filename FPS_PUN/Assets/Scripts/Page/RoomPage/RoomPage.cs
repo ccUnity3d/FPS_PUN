@@ -11,6 +11,7 @@ public class RoomPage : UIPage<RoomPage> {
     public RectTransform blueTeamRT;
     public Button switchTeamButton;
     public Button startGameButton;
+    public Text startGameText;
     public Button exitButton;
     public Text gameRoomNameText;
     #endregion
@@ -27,6 +28,7 @@ public class RoomPage : UIPage<RoomPage> {
         blueTeamRT = UITool.GetUIComponent<RectTransform>(gameRoomPlaneRT, "blueTeam/Scroll Rect Mask");
         switchTeamButton = UITool.GetUIComponent<Button>(gameRoomPlaneRT, "switchTeamButton");
         startGameButton = UITool.GetUIComponent<Button>(gameRoomPlaneRT, "startGameButton");
+        startGameText = UITool.GetUIComponent<Text>(startGameButton.transform,"Text");
         exitButton = UITool.GetUIComponent<Button>(gameRoomPlaneRT, "exitButton");
         gameRoomNameText = UITool.GetUIComponent<Text>(gameRoomPlaneRT, "titleText");
     }

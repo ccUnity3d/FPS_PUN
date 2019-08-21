@@ -71,6 +71,8 @@ public class TeamBlueScrollView : UGUIScrollView {
             {
                 return;
             }
+            Player player = (Player)Msgs[i];
+            var index = (int)player.CustomProperties["TeamNum"];
             skinClone = Instance(i);
             skinClone.transform.SetParent(ContentRectTrans);
             skinClone.transform.localPosition = GetLoaclPosByIndex(i);

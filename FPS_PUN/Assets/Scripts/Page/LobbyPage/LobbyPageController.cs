@@ -17,16 +17,7 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
         base.OnInstance();
         panel = lobbyPage = LobbyPage.Instance;
     }
-    List<object> dataList {
-        get {
-            List<object> temp = new List<object>();
-            foreach (var item in roominfoList)
-            {
-                temp.Add(item);
-            }
-            return temp;
-        }
-    }
+    TypedLobby typedLobby = new TypedLobby { Name = "FPS", Type = LobbyType.Default };
     public override void awake()
     {
         base.awake();
@@ -48,10 +39,10 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
         lobbyRoomScrollView = UITool.AddUIComponent<LobbyRoomScrollView>(lobbyPage.RoomListScrollRect.gameObject);
         lobbyRoomScrollView.enterRoomAction = OnEnterRoom;
 
-        TypedLobby typedLobby = new TypedLobby { Name = "FPS", Type = LobbyType.Default };
+        //TypedLobby typedLobby = new TypedLobby { Name = "FPS", Type = LobbyType.Default };
         PhotonNetwork.JoinLobby(typedLobby);
   
-        //lobbyRoomScrollView.RefreshDisplay(dataList);
+        //
     }
     /// <summary>
     /// 进入房间 
@@ -61,10 +52,9 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
     private void OnEnterRoom(LobbyRoomItemFunction obj)
     {
         //TODO
-        Debug.Log("asdfasdf");
+        Debug.Log("OnEnterRoom");
         PhotonNetwork.LeaveLobby();
         roomInfo = (RoomInfo)obj.data;
-       
     }
     /// <summary>
     /// 离开大厅
@@ -119,6 +109,7 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
     /// <param name="roomList"></param>
     public void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        Debug.Log("OnRoomListUpdate");
         List<object> rooms = new List<object>();
         Debug.Log("OnRoomListUpdate"+ roomList.Count);
         for (int i = 0; i < roomList.Count; i++)
@@ -133,7 +124,10 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
     /// <param name="lobbyStatistics"></param>
     public void OnLobbyStatisticsUpdate(List<TypedLobbyInfo> lobbyStatistics)
     {
-        Debug.Log("OnLobbyStatisticsUpdate");
+        for (int i = 0; i < lobbyStatistics.Count; i++)
+        {
+            Debug.Log("OnLobbyStatisticsUpdate" + lobbyStatistics[i].ToString());
+        }
     }
 
     public void OnFriendListUpdate(List<FriendInfo> friendList)
@@ -173,6 +167,7 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
 
     public void OnLeftRoom()
     {
+        Debug.Log("OnLeftRoom");
         //throw new NotImplementedException();
     }
 }
