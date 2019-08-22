@@ -23,6 +23,8 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
         base.awake();
         UITool.SetActionTrue(this.skin);
         PhotonNetwork.AddCallbackTarget(this);
+        Debug.Log(PhotonNetwork.NetworkClientState);
+        PhotonNetwork.JoinLobby();
     }
     public override void sleep()
     {
@@ -40,7 +42,8 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
         lobbyRoomScrollView.enterRoomAction = OnEnterRoom;
 
         //TypedLobby typedLobby = new TypedLobby { Name = "FPS", Type = LobbyType.Default };
-        PhotonNetwork.JoinLobby(typedLobby);
+        //typedLobby
+        PhotonNetwork.JoinLobby();
   
         //
     }
@@ -53,6 +56,7 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
     {
         //TODO
         Debug.Log("OnEnterRoom");
+  
         PhotonNetwork.LeaveLobby();
         roomInfo = (RoomInfo)obj.data;
     }
@@ -102,6 +106,7 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
         {
             PhotonNetwork.Disconnect();
         }
+        
     }
     /// <summary>
     /// callback  更新房间列表
@@ -168,6 +173,9 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
     public void OnLeftRoom()
     {
         Debug.Log("OnLeftRoom");
+        Debug.Log(PhotonNetwork.NetworkClientState);
         //throw new NotImplementedException();
+        PhotonNetwork.JoinLobby();
+      
     }
 }

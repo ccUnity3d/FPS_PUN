@@ -36,7 +36,10 @@ public class TeamRedScrollView : UGUIScrollView {
     }
     public override void RefreshDisplay(List<object> data = null, bool restPos = false, bool isChange = false)
     {
-
+        if (data.Count==0)
+        {
+            return;
+        }
         foreach (UGUIItemFunction item in itemDic.Values)
         {
             item.gameObject.SetActive(false);
@@ -46,9 +49,14 @@ public class TeamRedScrollView : UGUIScrollView {
         itemDic.Clear();
 
         List<object> playerData = new List<object>();
+    
         foreach (var item in data)
         {
             Player player =  item as Player;
+            if (player==null)
+            {
+                continue;
+            }
             if (player.CustomProperties["Team"].Equals("redTeam"))
             {
                 playerData.Add(item);

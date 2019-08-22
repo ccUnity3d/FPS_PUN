@@ -1,3 +1,4 @@
+using Photon.Pun;
 using UnityEngine;
 
 public class GlobalConfig : Singleton<GlobalConfig>
@@ -69,6 +70,17 @@ public class GlobalConfig : Singleton<GlobalConfig>
             return canvas;
         }
     }
+    private static PhotonView photonview;
+    public static PhotonView photonView {
+        get {
+            if (photonview == null)
+            {
+                photonview = GameObject.Find("PhotonView").AddComponent<PhotonView>();
+            }
+            return photonview;
+        }
+    }
+
 
     private  RectTransform _uiParant;
     public  RectTransform uiParant

@@ -61,8 +61,9 @@ public class LoginPageController : UIController<LoginPageController> , IConnecti
         Debug.Log(PhotonNetwork.LocalPlayer.NickName + "   NickName");
         PlayerPrefs.SetString("UserName", loginPage.nicknameInputField.textComponent.text);
         PlayerPrefs.Save();
-        if (!PhotonNetwork.IsConnected)
+        if (!PhotonNetwork.IsConnected) {
             PhotonNetwork.ConnectUsingSettings();
+        }
     }
 
     private void OnExit()
