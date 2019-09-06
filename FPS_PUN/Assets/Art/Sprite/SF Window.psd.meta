@@ -1,0 +1,110 @@
+fileFormatVersion: 2
+guid: a819aa9785b9fea488461c4380941e83
+timeCreated: 1457421461
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SF Window
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 2
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SF Window
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3
+        width: 476
+        height: 229
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 156, y: 94, z: 151, w: 94}
+      outline:
+      - - {x: 238, y: -96.5}
+        - {x: 238, y: -19.5}
+        - {x: 236, y: -12.5}
+        - {x: 236, y: 3.5}
+        - {x: 238, y: 13.5}
+        - {x: 238, y: 85.5}
+        - {x: 235, y: 92.5}
+        - {x: 229, y: 98.5}
+        - {x: 213, y: 105.5}
+        - {x: 196, y: 106.5}
+        - {x: 171, y: 112.5}
+        - {x: 162, y: 113.5}
+        - {x: 107, y: 113.5}
+        - {x: 92, y: 111.5}
+        - {x: 76, y: 106.5}
+        - {x: 75, y: 105.5}
+        - {x: -67, y: 105.5}
+        - {x: -68, y: 106.5}
+        - {x: -93, y: 113.5}
+        - {x: -158, y: 113.5}
+        - {x: -163, y: 112.5}
+        - {x: -172, y: 110.5}
+        - {x: -204, y: 104.5}
+        - {x: -215, y: 101.5}
+        - {x: -221, y: 99.5}
+        - {x: -233, y: 84.5}
+        - {x: -234, y: 75.5}
+        - {x: -234, y: 38.5}
+        - {x: -233, y: 27.5}
+        - {x: -228, y: 3.5}
+        - {x: -228, y: -13.5}
+        - {x: -233, y: -37.5}
+        - {x: -234, y: -43.5}
+        - {x: -234, y: -85.5}
+        - {x: -228, y: -103.5}
+        - {x: -215, y: -112.5}
+        - {x: -209, y: -114.5}
+        - {x: 212, y: -114.5}
+        - {x: 217, y: -113.5}
+        - {x: 229, y: -108.5}
+        - {x: 235, y: -102.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

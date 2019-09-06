@@ -216,7 +216,7 @@ public class RoomPageController : UIController<RoomPageController>, IInRoomCallb
             costomProperties["isReady"] = true;
             //costomProperties = new ExitGames.Client.Photon.Hashtable() { { "isReady", true } };
             PhotonNetwork.LocalPlayer.SetCustomProperties(costomProperties);
-            ManagerScene.instance.RPC_loadGameScene();
+            //ManagerScene.instance.RPC_loadGameScene();
             // 调用RPC
         }
         else

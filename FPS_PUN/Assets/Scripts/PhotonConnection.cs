@@ -8,8 +8,8 @@ using Photon.Realtime;
 /// 连接流程        1.connection MasterServer   2. connection GameServer  
 /// CallBack        1.OnConnectedToMaster   2.OnJoinedLobby  3.OnCreatedRoom   4.OnJoinedRoom
 /// </summary>
-
-public class PhotonConnection : MonoBehaviourPunCallbacks
+[RequireComponent(typeof(PhotonView))]
+public class PhotonConnection : MonoBehaviourPunCallbacks,IPunObservable
 { 
     private bool isConnecting;
     private TypedLobby typeLobby;
@@ -159,6 +159,13 @@ public class PhotonConnection : MonoBehaviourPunCallbacks
             PhotonNetwork.CreateRoom("FPS", roomOptions, typeLobby);
         }
     }
-    
 
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(null);
+        }
+    }
 }
+
