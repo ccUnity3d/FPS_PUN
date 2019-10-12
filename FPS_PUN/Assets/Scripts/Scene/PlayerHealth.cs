@@ -42,6 +42,7 @@ public class PlayerHealth : MonoBehaviour
         photonView.RPC("SetTeam", RpcTarget.Others, team);
     }
 
+
     // Update is called once per frame
     void Update()
     {

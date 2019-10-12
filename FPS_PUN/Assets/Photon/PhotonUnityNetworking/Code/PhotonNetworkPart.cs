@@ -1259,6 +1259,7 @@ namespace Photon.Pun
                     blockedSendingGroups.Remove(g);
                 }
             }
+
         }
 
 

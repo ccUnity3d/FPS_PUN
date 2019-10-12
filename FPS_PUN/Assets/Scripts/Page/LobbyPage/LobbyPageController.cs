@@ -24,7 +24,7 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
         UITool.SetActionTrue(this.skin);
         PhotonNetwork.AddCallbackTarget(this);
         Debug.Log(PhotonNetwork.NetworkClientState);
-        PhotonNetwork.JoinLobby();
+        //PhotonNetwork.JoinLobby();
     }
     public override void sleep()
     {
@@ -65,7 +65,7 @@ public class LobbyPageController : UIController<LobbyPageController> ,ILobbyCall
     /// </summary>
     private void OnExitLobby()
     {
-        PhotonNetwork.LeaveLobby();
+        //PhotonNetwork.LeaveLobby();
         UIManager.Close(PageType.LobbyPage);
         UIManager.Open(PageType.LoginPage);
     }

@@ -56,10 +56,12 @@ public class PlayerMove : MonoBehaviour {
         mouseRotateX = Mathf.Clamp(mouseRotateX,minRotate,maxRotate);
         playCamera.transform.localEulerAngles = new Vector3(mouseRotateX,0,0);
     }
+
     bool CheckGround() {
         RaycastHit hitInfo;
         float shellOffset = 0.01f;
         float radius = capsuleCollider.height / 2 - shellOffset;
+
         float maxDistance = capsuleCollider.height / 2;
         Vector3 currentPos = transform.position;
         currentPos.y += capsuleCollider.height / 2;

@@ -688,7 +688,7 @@ namespace Photon.Pun
 
 
         /// <summary>
-        /// Defines how many seconds PUN keeps the connection after Unity's OnApplicationPause(true) call. Default: 60 seconds.
+        ///  fines how many seconds PUN keeps the connection after Unity's OnApplicationPause(true) call. Default: 60 seconds.
         /// </summary>
         /// <remarks>
         /// It's best practice to disconnect inactive apps/connections after a while but to also allow users to take calls, etc..

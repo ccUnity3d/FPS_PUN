@@ -61,6 +61,7 @@ public class RoomPageController : UIController<RoomPageController>, IInRoomCallb
             }
         }
     }
+
     GameObject[] redTeams;
     GameObject[] blueTeams;
     private ExitGames.Client.Photon.Hashtable costomProperties;
@@ -126,6 +127,7 @@ public class RoomPageController : UIController<RoomPageController>, IInRoomCallb
     private void OnSwitchTeam()
     {
         // TODO
+            
         Debug.Log("SwitchTeam");
         List<object> players = new List<object>();
         foreach (Player p in PhotonNetwork.PlayerList)
@@ -216,6 +218,7 @@ public class RoomPageController : UIController<RoomPageController>, IInRoomCallb
             costomProperties["isReady"] = true;
             //costomProperties = new ExitGames.Client.Photon.Hashtable() { { "isReady", true } };
             PhotonNetwork.LocalPlayer.SetCustomProperties(costomProperties);
+            LoadSceneRPC.instance.loadScene();
             //ManagerScene.instance.RPC_loadGameScene();
             // 调用RPC
         }
